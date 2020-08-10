@@ -73,9 +73,9 @@ setopt +o menucomplete
 
 export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:$PATH"
-export NEO4J_HOME=/usr/share/java/neo4j
+export NEO4J_HOME="/usr/share/java/neo4j"
 export TERM="xterm-256color"
-export CHAOS_KEY="cd986ddcdce930dd8b0f274fce0bd602f9e2cf17ad4c5063de7f79d033cd761f"
+export CHAOS_KEY="$(cat .chaos_key)"
 
 # Wordlists
 export DIRS_SMALL="/usr/share/seclists/Discovery/Web-Content/raft-small-directories-lowercase.txt"
