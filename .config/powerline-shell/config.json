@@ -1,0 +1,17 @@
+{
+  "segments": [
+    "virtual_env",
+	"set_term_title",
+    "username",
+    "ssh",
+    "cwd",
+    "hg",
+    "jobs",
+   	"root"
+  ],
+  "cwd": {
+  	"mode": "dironly",
+  	"max_depth": 1
+  },
+  "theme": "~/.config/powerline-shell/theme.py"
+}
