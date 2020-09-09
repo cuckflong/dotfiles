@@ -58,7 +58,7 @@ radius = 0
 ; padding = 2
 separator =
 
-font-0 = "hack Font:size=12;3"
+font-0 = "Hack Font:size=12;3"
 font-1 = "unifont Font:style=Bold:size=12;3"
 font-2 = "Wuncon Siji Font:style=Bold:size=12;3"
 font-3 = "FuraCode Nerd Font:size=12;3"
@@ -97,7 +97,7 @@ tray-offset-y = 0
 tray-padding = 5
 tray-scale = 1.0
 
-font-0 = "hack Font:size=12;3"
+font-0 = "Hack Font:size=12;3"
 font-1 = "unifont Font:style=Bold:size=12;3"
 font-2 = "Wuncon Siji Font:style=Bold:size=12;3"
 font-3 = "FuraCode Nerd Font:size=12;3"
@@ -121,7 +121,7 @@ modules-right = durT pulseaudio daTS update daST battery daTP date
 [bar/bottom-gaps]
 inherit = bar/bottom
 
-modules-left = powermenu daTS backlight ddlS xkeyboard
+modules-left = powermenu daTS backlight ddlS
 modules-right = ddrT cpu dsTS memory dsST network-wifi
 
 ;==========================================================
@@ -297,9 +297,9 @@ label-urgent-foreground = ${colors.urgency}
 
 [module/title]
 type = internal/xwindow
-format =  <label> 
+format =  <label> 
 label = %title%
-label-empty = 
+label-empty = 
 label-maxlen = 70
 
 ;==========================================================
@@ -449,7 +449,7 @@ format =  <label>
 format-background = ${colors.secondary}
 format-foreground = ${colors.tertiary}
 format-padding = 1
-label = RAM  %percentage_used%%  %percentage_swap_used%%
+label = RAM  %gb_free%  %gb_swap_free%
 
 ; bar-used-format = [%fill%%empty%]
 ; bar-used-width = 10
@@ -472,7 +472,7 @@ accumulate-stats = true
 format-connected = <label-connected>
 format-connected-background = ${colors.tertiary}
 format-connected-padding = 1
-label-connected =  %upspeed%   %downspeed%
+label-connected = 爵 %local_ip%   %upspeed%   %downspeed%
 
 format-disconnected = <label-disconnected>
 format-disconnected-background = ${colors.tertiary}

@@ -1,6 +1,20 @@
-# Created by newuser for 5.6.2
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
+# Path to your oh-my-zsh installation.
+export ZSH="/home/clong/.oh-my-zsh"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=()
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Alias
 alias ls='ls --color=auto'
@@ -17,6 +31,7 @@ alias netstat="grc netstat"
 alias diff="grc diff"
 alias grep="grep --color=auto"
 alias ifconfig="grc ifconfig"
+alias iwconfig="grc iwconfig"
 alias dig="grc dig"
 alias whois="grc whois"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -32,24 +47,6 @@ ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta,bold'
-
-# Powerline Shell
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
 
 # Antigen Bundle
 source $HOME/.config/antigen.zsh
@@ -75,7 +72,7 @@ export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:$PATH"
 export NEO4J_HOME="/usr/share/java/neo4j"
 export TERM="xterm-256color"
-export CHAOS_KEY="$(cat .chaos_key)"
+export CHAOS_KEY="$(cat ${HOME}/.chaos_key)"
 
 # Wordlists
 export DIRS_SMALL="/usr/share/seclists/Discovery/Web-Content/raft-small-directories-lowercase.txt"
@@ -87,19 +84,12 @@ export FILES_LARGE="/usr/share/seclists/Discovery/Web-Content/raft-large-files-l
 export BIG="/usr/share/seclists/Discovery/Web-Content/big.txt"
 export ROCKYOU="/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt"
 
-#TMOUT=1
-
-# TRAPALRM() {
-#	__vte_prompt_command
-#}
-
 ##############################################################################
 # History Configuration
 ##############################################################################
 HISTSIZE=5000               #How many lines of history to keep in memory
 HISTFILE=$HOME/.zsh_history     #Where to save history to disk
 SAVEHIST=5000               #Number of history entries to save to disk
-#HISTDUP=erase               #Erase duplicates in the history file
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt incappendhistory #Immediately append to the history file, not just when a term is killed
